@@ -1,18 +1,18 @@
 package com.hm.assignment.sortingcsv;
 
-import java.io.File;
 import java.util.List;
-import java.util.Scanner;
 
 import com.hm.assignment.util.CSVSortUtil;
+import com.hm.assignment.util.NoArgumentsException;
 
 public class SortingMain {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
-		Scanner scan = new Scanner(System.in);
 		try {
+			if(args == null || args.length == 0) {
+				throw new NoArgumentsException("Please pass all the four arguments!!");
+			}
 			CSVSortUtil sortUtil = new CSVSortUtil();
 			// Reading the headers of csv files
 			boolean file1ColumnExists = sortUtil.parseFilesForHeaders(args[0], args[1]);
@@ -26,8 +26,6 @@ public class SortingMain {
 		} catch (Exception e) {
 			// executes when this exception occurs
 			System.out.println(e.getMessage());
-		} finally {
-			scan.close();
 		}
 	}
 

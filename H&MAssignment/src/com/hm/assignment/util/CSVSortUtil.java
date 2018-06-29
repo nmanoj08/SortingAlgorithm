@@ -8,6 +8,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -18,7 +19,7 @@ public class CSVSortUtil {
 		// TODO Auto-generated method stub
 		int index = 0;
 		String line = "";
-		Map<String, String> csvToBeSortedMap = new HashMap<String, String>();
+		Map<String, String> csvToBeSortedMap = new LinkedHashMap<String, String>();
 		File file = new File(this.getClass().getClassLoader().getResource(path).getFile());
 		try (BufferedReader br = new BufferedReader(new FileReader(file))) {
 			while ((line = br.readLine()) != null) {
